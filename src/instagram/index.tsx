@@ -72,6 +72,8 @@ export const Instagram = () => {
 					style={{
 						height: PROFILE_HEADER_HEIGHT,
 						boxShadow: '0 1px 4px 0 rgba(10,10,20,0.15)',
+						background: 'white',
+						zIndex: 1,
 					}}
 				>
 					<CoverContainer
@@ -95,7 +97,7 @@ export const Instagram = () => {
 					>
 						<FlexColumn>
 							<span>Followers</span>
-							<span>260</span>
+							<span>250</span>
 						</FlexColumn>
 					</Text>
 
@@ -108,7 +110,7 @@ export const Instagram = () => {
 					>
 						<FlexColumn>
 							<span>Following</span>
-							<span>298</span>
+							<span>311</span>
 						</FlexColumn>
 					</Text>
 				</AbsoluteFill>

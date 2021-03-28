@@ -13,6 +13,20 @@ export const Feed = () => {
 	const {width, height, fps} = useVideoConfig();
 	const posts: JSX.Element[] = [];
 
+	const container = spring({
+		frame: frame - 3 * 30,
+		fps,
+		config: {
+			stiffness: 300,
+			mass: 2000,
+			damping: 500,
+		},
+	});
+
+	const containerTop = interpolate(container, [0, 1], [0, -(width / 3)], {
+		extrapolateRight: 'clamp',
+	});
+
 	for (let i = 0; i < Math.ceil(FEED_IMAGE_URLS.length / 3); i++) {
 		posts.push(<br key={i} />);
 		const image = spring({
@@ -53,5 +67,14 @@ export const Feed = () => {
 		}
 	}
 
-	return <div>{posts}</div>;
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				top: containerTop,
+			}}
+		>
+			{posts}
+		</div>
+	);
 };
